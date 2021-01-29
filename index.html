@@ -11,8 +11,9 @@
     <title>Boolzapp</title>
 </head>
 <body>
+    <!-- total container/#root -->
     <div class="container flex" id="root">
-
+        <!-- sidebar -->
         <div class="side-bar">
             <div class="user-pic-name flex">
                 <div class="user-pic flex">
@@ -25,6 +26,7 @@
                     <i class="fas fa-ellipsis-v"></i>
                 </div>
             </div>
+            <!-- notifications -->
             <div class="notifications flex">
                 <div class="bckgrnd-font">
                     <i class="far fa-bell-slash"></i>
@@ -34,12 +36,17 @@
                     <span><a href="#">Attiva notifiche desktop</a></span>
                 </div>
             </div>
+            <!-- end notifications -->
+
+            <!-- search chat input -->
             <div class="search-chat">
                 <div class="input">
                     <input type="text" placeholder="Cerca o inizia una nuova chat">
                 </div>
             </div>
+            <!-- end search chat input -->
 
+            <!-- user-list -->
             <div class="users-list">
                 <ul>
                     <li>
@@ -56,11 +63,15 @@
                     </li>
                 </ul>
             </div>
+            <!-- end user-list -->
 
         </div>
+        <!-- end sidebar -->
 
+        <!-- main content -->
         <div class="main-content">
 
+            <!-- top content -->
             <div class="content-top">
                 <div class="access-user">
                     <div class="user-pic-name flex">
@@ -80,19 +91,27 @@
                         </div>
                     </div>
                 </div>
+                <!-- chat area -->
                 <div class="chat-area">
 
                 </div>
+                <!-- end chat area -->
 
             </div>
+            <!-- end top content -->
 
+            <!-- content bottom -->
             <div class="content-bottom flex">
                 <i class="fas fa-smile"></i>
                 <input type="text" placeholder="Scrivi un messaggio">
                 <i class="fas fa-microphone"></i>
             </div>
+            <!-- end content bottom -->
 
         </div>
+    <!-- end total container/#root -->
+
+        <!-- end main content -->
 
     </div>
     <script src="js/script.js"></script>

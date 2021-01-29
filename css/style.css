@@ -1,3 +1,4 @@
+/* utility classes */
 *{
     margin: 0;
     padding: 0;
@@ -9,6 +10,8 @@
 .p-l-r{
     padding: 0 20px 0 20px
 }
+/* end utility classes */
+
 body{
     background: linear-gradient(to bottom, #009688 0px, #009688 15vh, #dddbd1 15vh, #d2dbdc 100%);
     font-family: 'Roboto', sans-serif;
