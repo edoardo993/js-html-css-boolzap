@@ -12,6 +12,7 @@
 }
 /* end utility classes */
 
+/* general settings */
 body{
     background: linear-gradient(to bottom, #009688 0px, #009688 15vh, #dddbd1 15vh, #d2dbdc 100%);
     font-family: 'Roboto', sans-serif;
@@ -22,6 +23,9 @@ body{
     min-width: 950px;
     height: 95vh
 }
+/* end general settings */
+
+/* sidebar */
 .side-bar{
     width: 35%;
     height: 100%;
@@ -29,7 +33,8 @@ body{
 }
 .user-pic-name{
     justify-content: space-between;
-    padding: 0 20px 0 20px
+    padding: 0 20px 0 20px;
+    align-items: center
 }
 .user-pic img,
 .users-list img{
@@ -50,6 +55,19 @@ body{
     font-size: 20px;
     color: #000
 }
+/* end sidebar */
+
+/* notifications */
+.notifications{
+    align-items: center;
+    background: #72CEFB;
+    height: 100px
+}
+.notifications i{
+    font-size: 40px;
+    color: #72CEFB;
+    line-height: 80px;
+}
 .bckgrnd-font{
     height:80px;
     width: 80px;
@@ -58,40 +76,32 @@ body{
     margin: 0 20px 0 30px;
     text-align: center
 }
-.notifications{
-    align-items: center;
-}
-.notifications i{
-    font-size: 40px;
-    color: #72CEFB;
-    line-height: 80px;
-}
 .notification-message span{
     display: block
 }
 .notification-message a{
     color: #427D92
 }
+/* end notifications */
+
+/* search-chat input */
+.search-chat{
+    padding: 7px;
+    background: #EAEAEA;
+}
+/* end search-chat input */
+
+/* main content */
 .main-content{
     height: 100%;
     width: 65%
 }
+/* end main content */
+
+/* content-top */
 .content-top{
     height: calc(100% - 80px);
     width: 100%
-}
-.chat-area{
-    overflow-y: scroll;
-    background-image: url(../img/mine.jpg);
-    height: 100%
-}
-.user-pic-name{
-    align-items: center;
-}
-.last-access{
-    padding-left: 25px;
-    font-size: 15px;
-    color: #88827C
 }
 .access-user,
 .user-pic-name,
@@ -100,13 +110,17 @@ body{
     width: 100%;
     height: 80px
 }
-.notifications{
-    background: #72CEFB;
-    height: 100px
+.last-access{
+    padding-left: 25px;
+    font-size: 15px;
+    color: #88827C
 }
-.search-chat{
-    padding: 7px;
-    background: #EAEAEA;
+/* end content-top */
+
+.chat-area{
+    overflow-y: scroll;
+    background-image: url(../img/mine.jpg);
+    height: 100%
 }
 .input input{
     width: 100%;
@@ -116,6 +130,7 @@ body{
     font-size: 20px;
     padding-left: 20px
 }
+/* user-list */
 .users-list{
     height: calc(100% - 234px);   /* ? */
     max-height: calc(100% - 234px);   /* ? */
@@ -130,10 +145,13 @@ body{
     border-bottom: 1px solid #ccc;
     padding: 0 0 18px 18px;
 }
+/* end user-list */
+
 i:hover,
 .user-pic img{
     cursor: pointer;
 }
+/* content bottom */
 .content-bottom{
     justify-content: space-between;
     align-items: center;
@@ -152,3 +170,4 @@ i:hover,
     padding-left: 20px;
     margin: 0 15px 0 15px
 }
+/* end content bottom */
