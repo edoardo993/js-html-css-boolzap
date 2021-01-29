@@ -7,7 +7,9 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet"> 
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@100&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>  
     <title>Boolzapp</title>
 </head>
 <body>
@@ -49,21 +51,9 @@
             <!-- user-list -->
             <div class="users-list">
                 <ul>
-                    <li class="flex">
-                        <img src="img/avatar_2.jpg" alt="">
-                        <span>Michele</span>
-                    </li>
-                    <li class="flex">
-                        <img src="img/avatar_3.jpg" alt="">
-                        <span>Fabio</span>
-                    </li>
-                    <li class="flex">
-                        <img src="img/avatar_4.jpg" alt="">
-                        <span>Samuele</span>
-                    </li>
-                    <li class="flex">
-                        <img src="img/avatar_5.jpg" alt="">
-                        <span>Luisa</span>
+                    <li class="flex" v-for="element in contacts">
+                        <img :src="element.avatar" alt="">
+                        <span>{{element.name}}</span>
                     </li>
                 </ul>
                 </ul>
