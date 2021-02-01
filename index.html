@@ -6,18 +6,16 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@100&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/vue"></script>  
-    <title>Boolzapp</title>
+    <title>BOOLZAPP</title>
 </head>
 <body>
     <!-- total container/#root -->
     <div class="container flex" id="root">
         <!-- sidebar -->
         <div class="side-bar">
-            <div class="user-pic-name flex">
+            <div class="user-pic-name user-access flex">
                 <div class="user-pic flex">
                     <img src="img/avatar_1.jpg" alt="">
                     <span class="user-name">Nome Utente</span>
@@ -66,43 +64,41 @@
         <!-- main content -->
         <div class="main-content">
 
-            <!-- top content -->
-            <div class="content-top">
-                <div class="access-user">
-                    <div class="user-pic-name flex">
-                        <div class="user-pic flex">
-                            <div>
-                                <img src="img/avatar_1.jpg" alt="">
-                            </div>
-                            <div>
-                                <span class="user-name">Nome Utente</span>
-                                <p class="last-access">Ultimo accesso oggi alle</p>
-                            </div>
-                        </div>
-                        <div class="user-pic-name-icons">
-                            <i class="fas fa-search"></i>
-                            <i class="fas fa-paperclip p-l-r"></i>
-                            <i class="fas fa-ellipsis-v"></i>
-                        </div>
+            <!-- user access -->
+            <div class="user-access flex">
+                <div class="user-pic flex">
+                    <div>
+                        <img src="img/avatar_1.jpg" alt="">
+                    </div>
+                    <div>
+                        <span class="user-name">Nome Utente</span>
+                        <p class="last-access">Ultimo accesso oggi alle</p>
                     </div>
                 </div>
-                <!-- chat area -->
-                <div class="chat-area">
-                    <div class="user-messages flex">
-                        <div class="green-text flex">
-                            <span>Testo messaggio</span>
-                        </div>
-                    </div>
-                    <div class="other-user-messages flex">
-                        <div class="white-text flex">
-                            <span>Testo messaggio</span>
-                        </div>
-                  </div>
+                <div class="user-pic-name-icons">
+                    <i class="fas fa-search"></i>
+                    <i class="fas fa-paperclip p-l-r"></i>
+                    <i class="fas fa-ellipsis-v"></i>
                 </div>
-                <!-- end chat area -->
-
             </div>
-            <!-- end top content -->
+            <!-- end user access -->
+
+            <!-- chat area -->
+            <div class="chat-area">
+                <div class="user-messages flex">
+                    <div class="green-text">
+                        <span class="user-text">Testo messaggio</span>
+                        <span class="hour-message">12:25</span>
+                    </div>
+                </div>
+                <div class="other-user-messages flex">
+                    <div class="white-text">
+                        <span class="user-text">Testo messaggio</span>
+                        <span class="hour-message">12:25</span>
+                    </div>
+                </div>
+            </div>
+            <!-- end chat area -->
 
             <!-- content bottom -->
             <div class="content-bottom flex">
@@ -113,11 +109,10 @@
             <!-- end content bottom -->
 
         </div>
-    <!-- end total container/#root -->
-
         <!-- end main content -->
 
     </div>
+    <!-- end total container/#root -->
     <script src="js/script.js"></script>
 </body>
 </html>
