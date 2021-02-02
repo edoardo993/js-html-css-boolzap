@@ -10,6 +10,11 @@
 .p-l-r{
     padding: 0 20px 0 20px
 }
+.clearfix{
+    display: table;
+    content: "";
+    clear: both
+}
 /* end utility classes */
 
 /* general settings */
@@ -101,7 +106,7 @@ body{
 .users-list ul li:hover{
     background: rgb(238, 235, 235);
 }
-.users-list ul li:active{
+.users-list ul li:focus{
     background: rgb(109, 107, 107);
 }
 .users-list ul li span{
@@ -146,9 +151,6 @@ body{
     background-image: url(../img/mine.jpg);
     height: calc(100% - 160px)
 }
-.user-messages{
-    flex-direction: column
-}
 .message-box{
     border-radius: 5px;
     width: 300px;
@@ -160,11 +162,13 @@ body{
 }
 .green-box-text{
     background: green;
-    color: #fff
+    color: #fff;
+    float: right
 }
 .white-box-text{
     background: #fff;
-    color: #222
+    color: #222;
+    float: left
 }
 .hour-message{
     display: block;

@@ -16,10 +16,13 @@
 new Vue({
     el: '#root',
     data: {
+        
         // imposto a zero l'index dell'utente
         userIDX: 0,
+
         // imposto 'vuoto' l'input text iniziale
         inpuText: '',
+
         // lista contatti con info
         contacts: [
             {
@@ -112,6 +115,7 @@ new Vue({
         ]
     },
     methods: {
+
         // funzione per switchare da un contatto all'altro
         switChat: function(index){
             this.userIDX=index
@@ -128,6 +132,8 @@ new Vue({
             const year= date.getUTCFullYear();
             const newText={date: day + '/' + month + '/' + year + ' ' + hours + ':' + minutes, text: this.inpuText, status: 'sent'};
             this.contacts[this.userIDX].messages.push(newText);
+
+            // imposto 'vuoto' ad input text per azzerare il campo
             this.inpuText='';
 
             // dichiaro prima del setTimeout le 'variabili del data'
