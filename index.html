@@ -87,10 +87,10 @@
             <!-- chat area -->
             <div class="chat-area">
                 <div class="user-messages">
-                    <div v-for="element in contacts[userIDX].messages" :class="element.status" class="clearfix message-box">
+                    <div v-for="element in contacts[userIDX].messages" :class="element.status" class="clearfix message-box" @mouseover="upHere=true" @mouseleave="upHere=false">
                         <span class="user-text">{{element.text}}</span>
-                        <!-- <span><i class="fas fa-chevron-down"></i></span> -->
                         <span class="hour-message">{{element.date}}</span>
+                        <span class="chevron" v-show="upHere"><i class="fas fa-chevron-down"></i></span>
                     </div>
                 </div>
             </div>

@@ -16,7 +16,7 @@
 new Vue({
     el: '#root',
     data: {
-        
+        upHere : false,
         // imposto a zero l'index dell'utente
         userIDX: 0,
 
@@ -125,11 +125,11 @@ new Vue({
         // setTimeout
         enterMessage: function(){
             const date=new Date();
-            const hours = date.getUTCHours();
-            const minutes = date.getMinutes();
+            const hours=date.getUTCHours();
+            const minutes=date.getMinutes();
             const day=date.getUTCDay();
             const month=date.getUTCMonth();
-            const year= date.getUTCFullYear();
+            const year=date.getUTCFullYear();
             const newText={date: day + '/' + month + '/' + year + ' ' + hours + ':' + minutes, text: this.inpuText, status: 'sent'};
             this.contacts[this.userIDX].messages.push(newText);
 
