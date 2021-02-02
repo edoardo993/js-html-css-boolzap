@@ -84,6 +84,33 @@ body{
 }
 /* end notifications */
 
+/* users-list */
+.users-list{
+    height: calc(100% - 234px);
+    max-height: calc(100% - 234px);
+    background: #fff;
+    overflow-y: scroll;
+}
+.users-list ul{
+    list-style-type: none;
+}
+.users-list ul li{
+    border-bottom: 1px solid #ccc;
+    padding: 18px 0 18px 18px
+}
+.users-list ul li:hover{
+    background: rgb(238, 235, 235);
+}
+.users-list ul li:active{
+    background: rgb(109, 107, 107);
+}
+.users-list ul li span{
+    padding-left: 20px;
+    font-size: 20px;
+    font-weight: bold;
+}
+/* end users-list */
+
 /* search-chat input */
 .search-chat{
     padding: 7px;
@@ -119,35 +146,25 @@ body{
     background-image: url(../img/mine.jpg);
     height: calc(100% - 160px)
 }
-.green-text{
-    background: green;
-    color: #fff;
-    border-radius: 5px;
-    width: 300px;
-    max-width: 400px;
-    margin: 20px;
-    padding: 15px;
-    font-size: 20px;
-    word-wrap: break-word
-}
-.white-text{
-    background: #fff;
-    color: #222;
-    border-radius: 5px;
-    width: 300px;
-    max-width: 400px;
-    margin: 20px;
-    padding: 15px;
-    font-size: 20px;
-    word-wrap: break-word
-}
 .user-messages{
-    justify-content: flex-end;
-    align-items: flex-end;
+    flex-direction: column
 }
-.other-user-messages{
-    justify-content: flex-start;
-    align-items: flex-start
+.message-box{
+    border-radius: 5px;
+    width: 300px;
+    max-width: 400px;
+    margin: 20px;
+    padding: 15px;
+    font-size: 20px;
+    word-wrap: break-word
+}
+.green-box-text{
+    background: green;
+    color: #fff
+}
+.white-box-text{
+    background: #fff;
+    color: #222
 }
 .hour-message{
     display: block;
@@ -165,31 +182,9 @@ body{
     font-size: 20px;
     padding-left: 20px
 }
-
-/* user-list */
-.users-list{
-    height: calc(100% - 234px);
-    max-height: calc(100% - 234px);
-    background: #fff;
-    overflow-y: scroll;
-}
-.users-list ul{
-    list-style-type: none;
-}
-.users-list ul li{
-    margin: 18px 0 18px 0;
-    border-bottom: 1px solid #ccc;
-    padding: 0 0 18px 18px
-}
-.users-list ul li span{
-    padding-left: 20px;
-    font-size: 20px;
-    font-weight: bold;
-}
-/* end user-list */
-
 i:hover,
-.user-pic img{
+.user-pic img,
+.users-list ul li{
     cursor: pointer;
 }
 

@@ -15,6 +15,7 @@
     <div class="container flex" id="root">
         <!-- sidebar -->
         <div class="side-bar">
+            <!--  user pic-name -->
             <div class="user-pic-name user-access flex">
                 <div class="user-pic flex">
                     <img src="img/avatar_1.jpg" alt="">
@@ -26,6 +27,8 @@
                     <i class="fas fa-ellipsis-v"></i>
                 </div>
             </div>
+            <!--  end user pic-name -->
+
             <!-- notifications -->
             <div class="notifications flex">
                 <div class="bckgrnd-font">
@@ -49,15 +52,13 @@
             <!-- user-list -->
             <div class="users-list">
                 <ul>
-                    <li class="flex" v-for="element in contacts">
+                    <li class="flex" v-for="(element, index) in contacts" @click="switChat(index)">
                         <img :src="element.avatar" alt="">
                         <span>{{element.name}}</span>
                     </li>
                 </ul>
-                </ul>
             </div>
             <!-- end user-list -->
-
         </div>
         <!-- end sidebar -->
 
@@ -68,11 +69,11 @@
             <div class="user-access flex">
                 <div class="user-pic flex">
                     <div>
-                        <img src="img/avatar_1.jpg" alt="">
+                        <img :src="contacts[userIDX].avatar" alt="">
                     </div>
                     <div>
-                        <span class="user-name">Nome Utente</span>
-                        <p class="last-access">Ultimo accesso oggi alle</p>
+                        <span class="user-name">{{contacts[userIDX].name}}</span>
+                        <p class="last-access">Ultimo accesso oggi alle {{contacts[userIDX].lastSeen}}</p>
                     </div>
                 </div>
                 <div class="user-pic-name-icons">
@@ -86,15 +87,10 @@
             <!-- chat area -->
             <div class="chat-area">
                 <div class="user-messages flex">
-                    <div class="green-text">
-                        <span class="user-text">Testo messaggio</span>
-                        <span class="hour-message">12:25</span>
-                    </div>
-                </div>
-                <div class="other-user-messages flex">
-                    <div class="white-text">
-                        <span class="user-text">Testo messaggio</span>
-                        <span class="hour-message">12:25</span>
+                    <div v-for="element in contacts[userIDX].messages" :class="element.status==='sent' ? 'green-box-text message-box' : 'white-box-text message-box'">
+                        <span class="user-text">{{element.text}}</span>
+                        <!-- <span><i class="fas fa-chevron-down"></i></span> -->
+                        <span class="hour-message">{{element.date}}</span>
                     </div>
                 </div>
             </div>
@@ -103,7 +99,7 @@
             <!-- content bottom -->
             <div class="content-bottom flex">
                 <i class="fas fa-smile"></i>
-                <input type="text" placeholder="Scrivi un messaggio">
+                <input v-model="inpuText" @keyup.enter="enterMessage" type="text" placeholder="Scrivi un messaggio">
                 <i class="fas fa-microphone"></i>
             </div>
             <!-- end content bottom -->
