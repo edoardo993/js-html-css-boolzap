@@ -87,7 +87,7 @@
             <!-- chat area -->
             <div class="chat-area">
                 <div class="user-messages">
-                    <div v-for="element in contacts[userIDX].messages" :class="element.status==='sent' ? 'green-box-text message-box clearfix' : 'white-box-text message-box clearfix'">
+                    <div v-for="element in contacts[userIDX].messages" :class="element.status" class="clearfix message-box">
                         <span class="user-text">{{element.text}}</span>
                         <!-- <span><i class="fas fa-chevron-down"></i></span> -->
                         <span class="hour-message">{{element.date}}</span>

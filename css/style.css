@@ -160,12 +160,12 @@ body{
     font-size: 20px;
     word-wrap: break-word
 }
-.green-box-text{
+.sent{
     background: green;
     color: #fff;
     float: right
 }
-.white-box-text{
+.received{
     background: #fff;
     color: #222;
     float: left
