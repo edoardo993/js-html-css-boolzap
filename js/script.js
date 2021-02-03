@@ -193,7 +193,7 @@ new Vue({
                 if(element.name.toLowerCase().startsWith(this.search.toLocaleLowerCase())){
                     element.visible=true
                 }else{
-                    element.visibile=false
+                    element.visible=false
                 }
             })
         }
