@@ -15,12 +15,15 @@
     content: "";
     clear: both
 }
+.hide{
+    display: none
+}
 /* end utility classes */
 
 /* general settings */
 body{
     background: linear-gradient(to bottom, #009688 0px, #009688 15vh, #dddbd1 15vh, #d2dbdc 100%);
-    font-family: 'Lato', sans-serif;
+    font-family: 'Lato', sans-serif
 }
 .container{
     margin: 2.5vh auto;
@@ -90,13 +93,16 @@ body{
 /* end notifications */
 
 /* users-list */
+.search-chat{
+    height: calc(100% - 180px);
+    max-height: calc(100% - 180px);
+}
 .users-list{
-    height: calc(100% - 234px);
-    max-height: calc(100% - 234px);
+    height: calc(100% - 40px);
     background: #fff;
     overflow-y: scroll;
 }
-.users-list ul{
+ul{
     list-style-type: none;
 }
 .users-list ul li{
@@ -111,8 +117,16 @@ body{
 }
 .users-list ul li span{
     padding-left: 20px;
+    font-size: 20px
+}
+.input input{
+    width: 100%;
+    height: 40px;
+    border-radius: 2px;
+    border: none;
     font-size: 20px;
-    font-weight: bold;
+    padding-left: 20px;
+    margin-bottom: 7px
 }
 /* end users-list */
 
@@ -130,7 +144,7 @@ body{
 }
 /* end main content */
 
-/* content-top */
+/* user access */
 .user-access,
 .user-pic-name,
 .content-bottom{
@@ -143,7 +157,7 @@ body{
     font-size: 15px;
     color: #88827C
 }
-/* end content-top */
+/* end user access */
 
 /*  chat area */
 .chat-area{
@@ -158,24 +172,24 @@ body{
     margin: 20px;
     padding: 15px;
     font-size: 20px;
-    word-wrap: break-word;
+    word-break: break-all;
     position: relative;
+    color: #000
 }
 .sent{
-    background: green;
-    color: #fff;
+    background: #d0f3a9;
     float: right
 }
 .received{
     background: #fff;
-    color: #222;
     float: left
 }
 .hour-message{
     display: block;
     text-align: right;
     font-size: 13px;
-    padding-top: 10px
+    padding-top: 10px;
+    color: #9e9a9a
 }
 .chevron{
     position: absolute;
@@ -184,19 +198,33 @@ body{
     font-size: 14px;
     color: #ccc
 }
+.info-box{
+    position: absolute;
+    background: #EAEAEA;
+    width: 200px;
+    height: 100px;
+    z-index: 1;
+    border-radius: 5px;
+    box-shadow: 1px 1px 1px #ccc;
+    top: 50px;
+    right: 20px;
+    flex-direction: column;
+    justify-content: center
+}
+.info-box li{
+    padding: 6px 15px 6px 15px
+}
+.info-box li:hover{
+    background: rgb(172, 170, 170);
+}
 /*  end chat area */
 
-.input input{
-    width: 100%;
-    height: 40px;
-    border-radius: 2px;
-    border: none;
-    font-size: 20px;
-    padding-left: 20px
-}
 i:hover,
 .user-pic img,
-.users-list ul li{
+.users-list ul li,
+.user-info,
+.user-name,
+.info-box li{
     cursor: pointer;
 }
 

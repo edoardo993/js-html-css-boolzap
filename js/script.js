@@ -1,3 +1,10 @@
+// Milestone 1      DONE
+// 1 - Replica della grafica con la possibilità di avere messaggi
+// scritti dall’utente (verdi) e dall’interlocutore (bianco)
+// assegnando due classi CSS diverse
+// 2 - Visualizzazione dinamica della lista contatti: tramite la
+// direttiva v-for, visualizzare nome e immagine di ogni contatto
+
 // Milestone 2      DONE
 // 1 - Visualizzazione dinamica dei messaggi: tramite la
 // direttiva v-for, visualizzare tutti i messaggi relativi al
@@ -5,7 +12,7 @@
 // 2 - Click sul contatto mostra la conversazione del contatto
 // cliccato
 
-// Milestone 3       DONE
+// Milestone 3      DONE
 // 1 - Aggiunta di un messaggio: l’utente scrive un testo nella
 // parte bassa e digitando “enter” il testo viene aggiunto al
 // thread sopra, come messaggio verde
@@ -13,10 +20,28 @@
 // messaggio, l’utente riceverà un “ok” come risposta,
 // che apparirà dopo 1 secondo
 
+// Milestone 4
+// Ricerca utenti: scrivendo qualcosa nell’input a sinistra,
+// vengono visualizzati solo i contatti il cui nome contiene
+// le lettere inserite (es, Marco, Matteo Martina -> Scrivo “mar”
+// rimangono solo Marco e Martina)
+
+// Milestone 5 - BONUS
+// 1 - Cancella messaggio: cliccando sul messaggio appare un menu
+// a tendina che permette di cancellare il messaggio selezionato
+// 2 - Visualizzazione ora e ultimo messaggio inviato/ricevuto
+// nella lista dei contatti
+
 new Vue({
     el: '#root',
     data: {
-        upHere : false,
+
+        // imposto 'vuoto' la stringa del search chat  input
+        search: '',
+
+        //imposto a false la arrow che userò per il v-show in HTML
+        arrow: false,
+        
         // imposto a zero l'index dell'utente
         userIDX: 0,
 
@@ -121,16 +146,22 @@ new Vue({
             this.userIDX=index
         },
 
+        // funzione per ottenere data dinamica
+        getCurrentDate: function(){
+            const d=new Date();
+            let day=d.toLocaleString();
+            day=day.replace(',', '');
+            return day
+        },
+
         // funzione inserimento input utente con successivo
         // setTimeout
         enterMessage: function(){
-            const date=new Date();
-            const hours=date.getUTCHours();
-            const minutes=date.getMinutes();
-            const day=date.getUTCDay();
-            const month=date.getUTCMonth();
-            const year=date.getUTCFullYear();
-            const newText={date: day + '/' + month + '/' + year + ' ' + hours + ':' + minutes, text: this.inpuText, status: 'sent'};
+            const newText={
+                date: this.getCurrentDate(),
+                text: this.inpuText,
+                status: 'sent'
+            };
             this.contacts[this.userIDX].messages.push(newText);
 
             // imposto 'vuoto' ad input text per azzerare il campo
@@ -139,14 +170,32 @@ new Vue({
             // dichiaro prima del setTimeout le 'variabili del data'
             // per poterle utilizzare qua sotto (così elimino
             // l'undefined che si creerebbe)
-            let contacts= this.contacts;
+            let contacts=this.contacts;
             let thisUserIDX=this.userIDX;
+
+            // metto in una variabile la variabile dello scope getCurrentDate()
+            const dayForSetTimeout=this.getCurrentDate();
 
             // imposto ora il setTimeout
             setTimeout(function(){
-                let botAnswer={date: day + '/' + month + '/' + year + ' ' + hours + ':' + minutes, text: 'ok', status: 'received'};
+                const botAnswer={
+                    date: dayForSetTimeout,
+                    text: 'ok',
+                    status: 'received'
+                };
                 contacts[thisUserIDX].messages.push(botAnswer);
             }, 1000)
+        },
+
+        // funzione per ricerca utente
+        searchFilter: function(){
+            this.contacts.forEach((element)=>{
+                if(element.name.toLowerCase().startsWith(this.search.toLocaleLowerCase())){
+                    element.visible=true
+                }else{
+                    element.visibile=false
+                }
+            })
         }
     }
 });

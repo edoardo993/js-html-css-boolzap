@@ -44,21 +44,25 @@
             <!-- search chat input -->
             <div class="search-chat">
                 <div class="input">
-                    <input type="text" placeholder="Cerca o inizia una nuova chat">
+                    <input type="text"
+                        placeholder="Cerca o inizia una nuova chat"
+                        v-model="search"
+                        @keyup.enter="searchFilter"
+                    >
+                </div>
+                <div class="users-list">
+                    <ul>
+                        <li class="flex"
+                            v-for="(element, index) in contacts"
+                            @click="switChat(index)"
+                        >
+                            <img :src="element.avatar" alt="">
+                            <span>{{element.name}}</span>
+                        </li>
+                    </ul>
                 </div>
             </div>
             <!-- end search chat input -->
-
-            <!-- user-list -->
-            <div class="users-list">
-                <ul>
-                    <li class="flex" v-for="(element, index) in contacts" @click="switChat(index)">
-                        <img :src="element.avatar" alt="">
-                        <span>{{element.name}}</span>
-                    </li>
-                </ul>
-            </div>
-            <!-- end user-list -->
         </div>
         <!-- end sidebar -->
 
@@ -71,7 +75,7 @@
                     <div>
                         <img :src="contacts[userIDX].avatar" alt="">
                     </div>
-                    <div>
+                    <div class="user-info">
                         <span class="user-name">{{contacts[userIDX].name}}</span>
                         <p class="last-access">Ultimo accesso oggi alle {{contacts[userIDX].lastSeen}}</p>
                     </div>
@@ -87,10 +91,23 @@
             <!-- chat area -->
             <div class="chat-area">
                 <div class="user-messages">
-                    <div v-for="element in contacts[userIDX].messages" :class="element.status" class="clearfix message-box" @mouseover="upHere=true" @mouseleave="upHere=false">
+                    <div v-for="element in contacts[userIDX].messages"
+                        :class="element.status"
+                        class="clearfix message-box"
+                        @mouseover="arrow=true"
+                        @mouseleave="arrow=false"
+                    >
                         <span class="user-text">{{element.text}}</span>
                         <span class="hour-message">{{element.date}}</span>
-                        <span class="chevron" v-show="upHere"><i class="fas fa-chevron-down"></i></span>
+                        <span class="chevron" v-show="arrow">
+                            <i class="fas fa-chevron-down"></i>
+                        </span>
+                        <div class="hide info-box flex">
+                            <ul class="options-list">
+                                <li>Message Info</li>
+                                <li>Delete Message</li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -99,7 +116,11 @@
             <!-- content bottom -->
             <div class="content-bottom flex">
                 <i class="fas fa-smile"></i>
-                <input v-model="inpuText" @keyup.enter="enterMessage" type="text" placeholder="Scrivi un messaggio">
+                <input v-model="inpuText"
+                    @keyup.enter="enterMessage"
+                    type="text"
+                    placeholder="Scrivi un messaggio"
+                >
                 <i class="fas fa-microphone"></i>
             </div>
             <!-- end content bottom -->
