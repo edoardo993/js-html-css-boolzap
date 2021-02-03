@@ -20,7 +20,7 @@
 // messaggio, l’utente riceverà un “ok” come risposta,
 // che apparirà dopo 1 secondo
 
-// Milestone 4
+// Milestone 4      DONE
 // Ricerca utenti: scrivendo qualcosa nell’input a sinistra,
 // vengono visualizzati solo i contatti il cui nome contiene
 // le lettere inserite (es, Marco, Matteo Martina -> Scrivo “mar”
