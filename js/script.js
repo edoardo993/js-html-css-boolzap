@@ -36,7 +36,10 @@ new Vue({
     el: '#root',
     data: {
 
+        // imposto isActive true, in modo da avere di default
+        // 'display: none' al box elimina messaggio
         isActive: true,
+
         // imposto 'vuoto' la stringa del search chat  input
         search: '',
 
@@ -52,7 +55,7 @@ new Vue({
         // lista contatti con info
         contacts: [
             {
-                name: 'Michele Lanzotta',
+                name: 'Michele Letta',
                 avatar: 'img/avatar_1.jpg',
                 visible: true,
                 lastSeen: '11:49',
@@ -195,7 +198,7 @@ new Vue({
                 }
             })
         },
-        deleteEvent: function(index) {
+        deleteMessage: function(index) {
             this.contacts[this.userIDX].messages.splice(index, 1);
         }
     }
