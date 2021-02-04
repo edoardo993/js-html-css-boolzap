@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@100&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/dayjs@1.8.21/dayjs.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue"></script>  
     <title>BOOLZAPP</title>
 </head>
@@ -51,14 +52,37 @@
                     >
                 </div>
                 <div class="users-list">
-                    <ul>
-                        <li class="flex"
+                    <!-- <ul>
+                        <li
                             v-for="(element, index) in contacts"
                             @click="switChat(index)"
                             v-if="element.visible"
                         >
-                            <img :src="element.avatar" alt="">
-                            <span>{{element.name}}</span>
+                             <div class="info-messages-container">
+                                 <img class="f-l" :src="element.avatar" alt="">
+                                <span class="user-name-chat">{{element.name}}</span>
+                                <span class="hour-chat f-r">{{element.messages[element.messages.length-1].date}}</span>
+                            </div>
+                            <span class="last-message f-l">{{element.messages[element.messages.length-1].text}}</span>
+                            <span class="f-r double-tick"><i class="fas fa-check-double"></i></span>
+                        </li>
+                    </ul> -->
+                    <ul>
+                        <li class="info-user-chat"
+                            v-for="(element, index) in contacts"
+                            @click="switChat(index)"
+                            v-if="element.visible"
+                        >
+                            <div class="info-messages-container">
+                                 <img class="" :src="element.avatar" alt="">
+                            </div>
+                            <div class="info-left">
+                                <span class="user-name-chat">{{element.name}}</span>
+                                <p class="last-message">{{element.messages[element.messages.length-1].text}}</p>
+                            </div>
+                            <div class="info-right">
+                                <p class="hour-chat">{{element.messages[element.messages.length-1].date}}</p>
+                            </div>
                         </li>
                     </ul>
                 </div>
@@ -92,7 +116,7 @@
             <!-- chat area -->
             <div class="chat-area">
                 <div class="user-messages">
-                    <div v-for="element in contacts[userIDX].messages"
+                    <div v-for="(element,index) in contacts[userIDX].messages"
                         :class="element.status"
                         class="clearfix message-box"
                         @mouseover="arrow=true"
@@ -100,13 +124,13 @@
                     >
                         <span class="user-text">{{element.text}}</span>
                         <span class="hour-message">{{element.date}}</span>
-                        <span class="chevron" v-show="arrow">
+                        <span class="chevron" v-show="arrow" @click="isActive=!isActive">
                             <i class="fas fa-chevron-down"></i>
                         </span>
-                        <div class="hide info-box flex">
+                        <div class="info-box flex" :class="{active: isActive}">
                             <ul class="options-list">
                                 <li>Message Info</li>
-                                <li>Delete Message</li>
+                                <li @click="deleteEvent(index)">Delete Message</li>
                             </ul>
                         </div>
                     </div>

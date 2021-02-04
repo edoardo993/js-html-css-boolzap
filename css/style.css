@@ -8,15 +8,21 @@
     display: flex
 }
 .p-l-r{
-    padding: 0 20px 0 20px
+    padding: 0 16px 0 16px
 }
 .clearfix{
     display: table;
     content: "";
     clear: both
 }
-.hide{
+.active{
     display: none
+}
+.f-l{
+    float: left
+}
+.f-r{
+    float: right
 }
 /* end utility classes */
 
@@ -85,7 +91,8 @@ body{
     text-align: center
 }
 .notification-message span{
-    display: block
+    display: block;
+    padding-right: 20px
 }
 .notification-message a{
     color: #427D92
@@ -95,7 +102,7 @@ body{
 /* users-list */
 .search-chat{
     height: calc(100% - 180px);
-    max-height: calc(100% - 180px);
+    max-height: calc(100% - 180px)
 }
 .users-list{
     height: calc(100% - 40px);
@@ -107,7 +114,10 @@ ul{
 }
 .users-list ul li{
     border-bottom: 1px solid #ccc;
-    padding: 18px 0 18px 18px
+    padding: 18px 0 18px 18px;
+    overflow: hidden;
+    max-height: 90px;
+    text-overflow: ellipsis;
 }
 .users-list ul li:hover{
     background: rgb(238, 235, 235);
@@ -117,7 +127,9 @@ ul{
 }
 .users-list ul li span{
     padding-left: 20px;
-    font-size: 20px
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 .input input{
     width: 100%;
@@ -134,6 +146,44 @@ ul{
 .search-chat{
     padding: 7px;
     background: #EAEAEA;
+}
+.users-list ul li span.last-message{
+    font-size: 14px
+}
+.hour-chat{
+    font-size: 13px;
+    width: 30px
+}
+.user-name-chat{
+    font-size: 20px;
+}
+.double-tick{
+    color: #ccc;
+    font-size: 12px;
+}
+.info-user-chat div{
+    display: inline-block;
+    line-height: 18px;
+}
+.info-user-chat p{
+    padding: 5px 0 5px 20px
+}
+.info-right{
+    height: 50px;
+    width: 22%
+}
+.info-left{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 60%;
+    height: 50px
+}
+.last-message{
+    padding-left: 20px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 /* end search-chat input */
 
@@ -166,11 +216,10 @@ ul{
     height: calc(100% - 160px)
 }
 .message-box{
-    border-radius: 5px;
-    width: 300px;
-    max-width: 400px;
-    margin: 20px;
-    padding: 15px;
+    border-radius: 7px;
+    max-width: 550px;
+    margin: 10px 60px 10px 60px;
+    padding: 10px 15px 10px 15px;
     font-size: 20px;
     word-break: break-all;
     position: relative;
@@ -188,7 +237,7 @@ ul{
     display: block;
     text-align: right;
     font-size: 13px;
-    padding-top: 10px;
+    padding-top: 2px;
     color: #9e9a9a
 }
 .chevron{
@@ -200,16 +249,17 @@ ul{
 }
 .info-box{
     position: absolute;
-    background: #EAEAEA;
-    width: 200px;
+    background: #f3f0f0;
+    width: 160px;
     height: 100px;
     z-index: 1;
     border-radius: 5px;
     box-shadow: 1px 1px 1px #ccc;
-    top: 50px;
-    right: 20px;
+    top: 40px;
+    right: 15px;
     flex-direction: column;
-    justify-content: center
+    justify-content: center;
+    font-size: 16px
 }
 .info-box li{
     padding: 6px 15px 6px 15px
@@ -217,8 +267,12 @@ ul{
 .info-box li:hover{
     background: rgb(172, 170, 170);
 }
+.user-text{
+    padding-right: 15px
+}
 /*  end chat area */
 
+/* cursor pointer*/
 i:hover,
 .user-pic img,
 .users-list ul li,
@@ -227,6 +281,7 @@ i:hover,
 .info-box li{
     cursor: pointer;
 }
+/* end cursor pointer*/
 
 /* content bottom */
 .content-bottom{
